@@ -1,0 +1,27 @@
+.mainDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.mainDiv > div:first-of-type {
+  flex-basis: 70%;
+}
+
+.mainDiv > div:last-of-type {
+  flex-basis: 30%;
+}
+
+.dateInfo {
+  display: flex;
+  justify-content: center;
+}
+
+.dateInfo > p {
+  margin: 2rem;
+  font-size: 2rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
