@@ -1,0 +1,12 @@
+.contactArea {
+  height: 400px;
+}
+
+.submittedForm {
+  width: 100%;
+  text-align: center;
+  line-height: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 10px;
+}

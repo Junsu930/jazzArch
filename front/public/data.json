@@ -1,0 +1,460 @@
+{
+  "metro": [
+    {
+      "clubCode": "m01",
+      "title": "천년동안도 종각",
+      "mainRegion": "서울",
+      "subRegion": "강북",
+      "detlRegion": "jongro",
+      "detlAddr": "서울 종로구 삼일대로15길 6 지하1층, 2층",
+      "note": "종각역 4번 출구에서 424m"
+    },
+    {
+      "clubCode": "m02",
+      "title": "천년동안도 낙원",
+      "mainRegion": "서울",
+      "subRegion": "강북",
+      "detlRegion": "jongro",
+      "detlAddr": "서울 종로구 수표로 134 2층",
+      "note": "종로3가역 5번 출구에서 90m"
+    },
+    {
+      "clubCode": "m03",
+      "title": "하우스오브블루",
+      "mainRegion": "서울",
+      "subRegion": "강북",
+      "detlRegion": "jongro",
+      "detlAddr": "서울 종로구 자하문로9길 6 지하1층",
+      "note": "경복궁역 2번 출구에서 398m"
+    },
+    {
+      "clubCode": "m04",
+      "title": "서울 게러지바",
+      "mainRegion": "서울",
+      "subRegion": "강북",
+      "detlRegion": "jongro",
+      "detlAddr": "서울 종로구 종로14길 4 1층",
+      "note": "종각역 4번 출구에서 281m"
+    },
+    {
+      "clubCode": "m05",
+      "title": "종로 리브로",
+      "mainRegion": "서울",
+      "subRegion": "강북",
+      "detlRegion": "junggu",
+      "detlAddr": "서울 중구 퇴계로27길 49 지하1층",
+      "note": "을지로3가역 9번 출구에서 302m"
+    },
+    {
+      "clubCode": "m06",
+      "title": "이들스",
+      "mainRegion": "서울",
+      "subRegion": "강북",
+      "detlRegion": "jongro",
+      "detlAddr": "서울 종로구 삼일대로 428 중2층",
+      "note": "종로3가역 5번 출구에서 54m"
+    },
+    {
+      "clubCode": "m07",
+      "title": "연남 5701",
+      "mainRegion": "서울",
+      "subRegion": "강북",
+      "detlRegion": "seodaemun",
+      "detlAddr": "서울 서대문구 신촌로 141 9층",
+      "note": "이대역 1번 출구에서 366m"
+    }
+  ],
+  "spCity": [
+    {
+      "clubCode": "s01",
+      "title": "테스트 광역시",
+      "mainRegion": "인천광역시",
+      "subRegion": "인천",
+      "detlRegion": "incheon",
+      "detlAddr": "인천광역시 6 지하1층, 2층",
+      "note": "인천 424m"
+    }
+  ],
+  "rural": [
+    {
+      "clubCode": "r01",
+      "title": "강원도 테스트",
+      "mainRegion": "강원도",
+      "subRegion": "강북",
+      "detlRegion": "gangwon",
+      "detlAddr": "강원도 지하1층, 2층",
+      "note": "강원도 출구에서 424m"
+    }
+  ],
+  "metroCode": [
+    {
+      "code": "all",
+      "codeNm": "전체"
+    },
+    {
+      "code": "dobong",
+      "codeNm": "도봉구"
+    },
+    {
+      "code": "gangbuk",
+      "codeNm": "강북구"
+    },
+    {
+      "code": "nowon",
+      "codeNm": "노원구"
+    },
+    {
+      "code": "eunpyeong",
+      "codeNm": "은평구"
+    },
+    {
+      "code": "seodaemun",
+      "codeNm": "서대문구"
+    },
+    {
+      "code": "jongro",
+      "codeNm": "종로구"
+    },
+    {
+      "code": "seongbuk",
+      "codeNm": "성북구"
+    },
+    {
+      "code": "jungrang",
+      "codeNm": "중랑구"
+    },
+    {
+      "code": "dongdaemun",
+      "codeNm": "동대문구"
+    },
+    {
+      "code": "junggu",
+      "codeNm": "중구"
+    },
+    {
+      "code": "yongsan",
+      "codeNm": "용산구"
+    },
+    {
+      "code": "seongdong",
+      "codeNm": "성동구"
+    },
+    {
+      "code": "gwangjin",
+      "codeNm": "광진구"
+    },
+    {
+      "code": "gangseo",
+      "codeNm": "강서구"
+    },
+    {
+      "code": "yangcheon",
+      "codeNm": "양천구"
+    },
+    {
+      "code": "guro",
+      "codeNm": "구로구"
+    },
+    {
+      "code": "yeongdeungpo",
+      "codeNm": "영등포구"
+    },
+    {
+      "code": "geumcheon",
+      "codeNm": "금천구"
+    },
+    {
+      "code": "dongjak",
+      "codeNm": "동작구"
+    },
+    {
+      "code": "gwanak",
+      "codeNm": "관악구"
+    },
+    {
+      "code": "seocho",
+      "codeNm": "서초구"
+    },
+    {
+      "code": "gangnam",
+      "codeNm": "강남구"
+    },
+    {
+      "code": "songpa",
+      "codeNm": "송파구"
+    },
+    {
+      "code": "gangdong",
+      "codeNm": "강동구"
+    }
+  ],
+  "spCityCode": [
+    {
+      "code": "all",
+      "codeNm": "전체"
+    },
+    {
+      "code": "inchen",
+      "codeNm": "인천구"
+    }
+  ],
+  "ruralCode": [
+    {
+      "code": "all",
+      "codeNm": "전체"
+    },
+    {
+      "code": "sigol",
+      "codeNm": "시골구"
+    }
+  ],
+  "comment": [
+    {
+      "key": "1",
+      "userid": "web7722",
+      "content": "안뇽하세요2",
+      "date": "2022-04-21",
+      "parentClub": "m01"
+    },
+    {
+      "key": "2",
+      "userid": "web7722",
+      "content": "안뇽하세요3",
+      "date": "2022-04-21",
+      "parentClub": "m01"
+    },
+    {
+      "key": "3",
+      "userid": "web7722",
+      "content": "안뇽하세요4",
+      "date": "2022-04-21",
+      "parentClub": "m02"
+    }
+  ],
+  "boardList": [
+    {
+      "id": 1,
+      "author": "user1",
+      "title": "title1",
+      "content": "This is the content of the first post",
+      "viewCount": 5,
+      "createdAt": "2024-07-15T10:00:00"
+    },
+    {
+      "id": 2,
+      "author": "user2",
+      "title": "title2",
+      "content": "Here is some content for the second post",
+      "viewCount": 10,
+      "createdAt": "2024-07-15T11:00:00"
+    },
+    {
+      "id": 3,
+      "author": "user3",
+      "title": "title3",
+      "content": "Third post content goes here",
+      "viewCount": 3,
+      "createdAt": "2024-07-15T12:00:00"
+    },
+    {
+      "id": 4,
+      "author": "user4",
+      "title": "title4",
+      "content": "Content of the fourth post",
+      "viewCount": 7,
+      "createdAt": "2024-07-15T13:00:00"
+    },
+    {
+      "id": 5,
+      "author": "user5",
+      "title": "title5",
+      "content": "Fifth post's content",
+      "viewCount": 2,
+      "createdAt": "2024-07-15T14:00:00"
+    },
+    {
+      "id": 6,
+      "author": "user6",
+      "title": "title6",
+      "content": "This is the content of the sixth post",
+      "viewCount": 12,
+      "createdAt": "2024-07-15T15:00:00"
+    },
+    {
+      "id": 7,
+      "author": "user7",
+      "title": "title7",
+      "content": "Seventh post content",
+      "viewCount": 1,
+      "createdAt": "2024-07-15T16:00:00"
+    },
+    {
+      "id": 8,
+      "author": "user8",
+      "title": "title8",
+      "content": "Content for the eighth post",
+      "viewCount": 8,
+      "createdAt": "2024-07-15T17:00:00"
+    },
+    {
+      "id": 9,
+      "author": "user9",
+      "title": "title9",
+      "content": "Ninth post's content",
+      "viewCount": 4,
+      "createdAt": "2024-07-15T18:00:00"
+    },
+    {
+      "id": 10,
+      "author": "user10",
+      "title": "title10",
+      "content": "Tenth post content here",
+      "viewCount": 9,
+      "createdAt": "2024-07-15T19:00:00"
+    },
+    {
+      "id": 11,
+      "author": "user11",
+      "title": "title11",
+      "content": "Eleventh post content",
+      "viewCount": 15,
+      "createdAt": "2024-07-15T20:00:00"
+    },
+    {
+      "id": 12,
+      "author": "user12",
+      "title": "title12",
+      "content": "Twelfth post content",
+      "viewCount": 6,
+      "createdAt": "2024-07-15T21:00:00"
+    },
+    {
+      "id": 13,
+      "author": "user13",
+      "title": "title13",
+      "content": "Thirteenth post content",
+      "viewCount": 13,
+      "createdAt": "2024-07-15T22:00:00"
+    },
+    {
+      "id": 14,
+      "author": "user14",
+      "title": "title14",
+      "content": "Fourteenth post content",
+      "viewCount": 7,
+      "createdAt": "2024-07-15T23:00:00"
+    },
+    {
+      "id": 15,
+      "author": "user15",
+      "title": "title15",
+      "content": "Fifteenth post content",
+      "viewCount": 8,
+      "createdAt": "2024-07-16T00:00:00"
+    },
+    {
+      "id": 16,
+      "author": "user16",
+      "title": "title16",
+      "content": "Sixteenth post content",
+      "viewCount": 4,
+      "createdAt": "2024-07-16T01:00:00"
+    },
+    {
+      "id": 17,
+      "author": "user17",
+      "title": "title17",
+      "content": "Seventeenth post content",
+      "viewCount": 5,
+      "createdAt": "2024-07-16T02:00:00"
+    },
+    {
+      "id": 18,
+      "author": "user18",
+      "title": "title18",
+      "content": "Eighteenth post content",
+      "viewCount": 11,
+      "createdAt": "2024-07-16T03:00:00"
+    },
+    {
+      "id": 19,
+      "author": "user19",
+      "title": "title19",
+      "content": "Nineteenth post content",
+      "viewCount": 2,
+      "createdAt": "2024-07-16T04:00:00"
+    },
+    {
+      "id": 20,
+      "author": "user20",
+      "title": "title20",
+      "content": "Twentieth post content",
+      "viewCount": 9,
+      "createdAt": "2024-07-16T05:00:00"
+    },
+    {
+      "id": 21,
+      "author": "user21",
+      "title": "title21",
+      "content": "Twenty-first post content",
+      "viewCount": 3,
+      "createdAt": "2024-07-16T06:00:00"
+    },
+    {
+      "id": 22,
+      "author": "user22",
+      "title": "title22",
+      "content": "Twenty-second post content",
+      "viewCount": 4,
+      "createdAt": "2024-07-16T07:00:00"
+    },
+    {
+      "id": 23,
+      "author": "user23",
+      "title": "title23",
+      "content": "Twenty-third post content",
+      "viewCount": 6,
+      "createdAt": "2024-07-16T08:00:00"
+    },
+    {
+      "id": 24,
+      "author": "user24",
+      "title": "title24",
+      "content": "Twenty-fourth post content",
+      "viewCount": 2,
+      "createdAt": "2024-07-16T09:00:00"
+    },
+    {
+      "id": 25,
+      "author": "user25",
+      "title": "title25",
+      "content": "Twenty-fifth post content",
+      "viewCount": 7,
+      "createdAt": "2024-07-16T10:00:00"
+    },
+    {
+      "id": 26,
+      "author": "user26",
+      "title": "title26",
+      "content": "Twenty-sixth post content",
+      "viewCount": 5,
+      "createdAt": "2024-07-16T11:00:00"
+    },
+    {
+      "id": 27,
+      "author": "user27",
+      "title": "title27",
+      "content": "Twenty-seventh post content",
+      "viewCount": 10,
+      "createdAt": "2024-07-16T12:00:00"
+    },
+    {
+      "id": 28,
+      "author": "user28",
+      "title": "title28",
+      "content": "Twenty-eighth post content",
+      "viewCount": 6,
+      "createdAt": "2024-07-16T13:00:00"
+    }
+  ]
+}

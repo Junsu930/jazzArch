@@ -1,0 +1,62 @@
+.tableRat th:first-of-type {
+  width: 5%;
+}
+
+.tableRat th:nth-of-type(2) {
+  width: 10%;
+}
+
+.tableRat th:last-of-type {
+  width: 5%;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+Link {
+  text-decoration: none;
+}
+/* 페이지네이션 컨테이너 스타일 */
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  display: block;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background-color: #eee;
+  border-color: #ddd;
+  color: #0056b3;
+}
+
+.pagination .active a {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.pagination .disabled a {
+  color: #ddd;
+  cursor: not-allowed;
+}
+
+.pagination .disabled a:hover {
+  background-color: transparent;
+  border-color: #ddd;
+}
