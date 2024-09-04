@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { getAllBoard } from '../../api/apiClient';
 const Freeboard = () => {
   const [boardList, setBoardList] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
@@ -15,8 +16,8 @@ const Freeboard = () => {
   useEffect(() => {
     async function getBoard() {
       try {
-        const response = await axios.get('/data.json');
-        setBoardList(response.data.boardList);
+        const response = await getAllBoard();
+        setBoardList(response.data);
       } catch (error) {
         console.error('Error fetching the board data:', error);
       }
@@ -53,11 +54,11 @@ const Freeboard = () => {
         </thead>
         <tbody>
           {currentPageData.map((board) => (
-            <tr key={board.id}>
-              <th scope="row">{board.id}</th>
+            <tr key={board.boardNo}>
+              <th scope="row">{board.boardNo}</th>
               <td>{board.author}</td>
               <td>
-                <Link to={`/post/${board.id}`}>{board.title}</Link>
+                <Link to={`/post/${board.boardNo}`}>{board.title}</Link>
               </td>
               <td>{board.viewCount}</td>
             </tr>
