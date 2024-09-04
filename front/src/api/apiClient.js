@@ -4,6 +4,14 @@ const apiClient = axios.create({
   baseURL: 'http://localhost:8080',
 });
 
+export async function getAllBoard() {
+  return await apiClient.get('/api/public/getAllBoard');
+}
+
+export async function getOneBoard(boardId) {
+  return await apiClient.get(`/api/public/getOneBoard/${boardId}`);
+}
+
 export async function getAllClub() {
   return await apiClient.get('/api/public/getClub');
 }
