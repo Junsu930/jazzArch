@@ -1,0 +1,19 @@
+/* WritePost.module.css */
+.fileUpload {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.attachBtn {
+  margin-right: 10px;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileName {
+  font-size: 14px;
+  color: #333;
+}

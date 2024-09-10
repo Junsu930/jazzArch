@@ -1,3 +1,7 @@
 .content {
   height: 80vh;
 }
+
+.backButton {
+  cursor: pointer;
+}

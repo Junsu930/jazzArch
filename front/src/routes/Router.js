@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthProvider } from '../context/AuthContexet.js';
 import SignUp from '../views/ui/SignUp.js';
+import WritePost from '../views/ui/WritePost.js';
 
 /****Layouts*****/
 const FullLayout = lazy(() => import('../layouts/FullLayout.js'));
@@ -40,6 +41,7 @@ const ThemeRoutes = [
       { path: '/login', exact: true, element: <LoginPage /> },
       { path: '/signUp', exact: true, element: <SignUp /> },
       { path: '/post/:id', exact: true, element: <BoardDetail /> },
+      { path: '/writePost', exact: true, element: <WritePost /> },
     ],
   },
 ];
