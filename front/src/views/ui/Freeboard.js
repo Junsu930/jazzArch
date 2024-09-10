@@ -36,6 +36,10 @@ const Freeboard = () => {
     navigate(`?page=${selected}`);
   };
 
+  const gotoWriteHandler = () => {
+    navigate('/writePost');
+  };
+
   const offset = currentPage * itemsPerPage;
   const currentPageData = boardList.slice(offset, offset + itemsPerPage);
   const pageCount = Math.ceil(boardList.length / itemsPerPage);
@@ -78,7 +82,7 @@ const Freeboard = () => {
         </tbody>
       </Table>
       {auth.isLoggedIn && (
-        <Button color="light" size="sm">
+        <Button color="light" size="sm" onClick={gotoWriteHandler}>
           글쓰기
         </Button>
       )}

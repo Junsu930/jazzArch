@@ -42,3 +42,7 @@ export async function getEmailDupCheck(email) {
 export async function getNicknameDupCheck(nickname) {
   return await apiClient.get('/api/public/check-nickname?nickname=' + nickname);
 }
+
+export async function setImages(formData, header) {
+  return await apiClient.post('/api/public/image/upload', formData, header);
+}

@@ -15,6 +15,7 @@ const LoginPage = lazy(() => import('../views/ui/Login.js'));
 const Contact = lazy(() => import('../views/ui/Contact.js'));
 const Freeboard = lazy(() => import('../views/ui/Freeboard.js'));
 const BoardDetail = lazy(() => import('../views/ui/BoardDetail.js'));
+const PrivateRouter = lazy(() => import('./PrivateRouter.js'));
 
 /*****Routes******/
 
@@ -41,7 +42,11 @@ const ThemeRoutes = [
       { path: '/login', exact: true, element: <LoginPage /> },
       { path: '/signUp', exact: true, element: <SignUp /> },
       { path: '/post/:id', exact: true, element: <BoardDetail /> },
-      { path: '/writePost', exact: true, element: <WritePost /> },
+      {
+        path: '/writePost',
+        exact: true,
+        element: <PrivateRouter element={<WritePost />}> </PrivateRouter>,
+      },
     ],
   },
 ];
