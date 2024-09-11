@@ -9,4 +9,6 @@ public interface BoardService {
     public List<Board> getAllBoard();
 
     public Optional<Board> getOneBoard(Long boardId);
+
+    public Board writeBoard(Board board);
 }

@@ -18,11 +18,16 @@ public class BoardServiceImpl implements BoardService {
     }
     @Override
     public List<Board> getAllBoard() {
-        return boardRepository.findAll(Sort.by(Sort.Direction.DESC, "boardNo"));
+        return boardRepository.findAll();
     }
 
     @Override
     public Optional<Board> getOneBoard(Long id) {
         return boardRepository.findById(id);
+    }
+
+    @Override
+    public Board writeBoard(Board board) {
+        return boardRepository.save(board);
     }
 }

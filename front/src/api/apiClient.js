@@ -46,3 +46,19 @@ export async function getNicknameDupCheck(nickname) {
 export async function setImages(formData, header) {
   return await apiClient.post('/api/public/image/upload', formData, header);
 }
+
+export async function writeBoard(
+  title,
+  content,
+  authorId,
+  authorEmail,
+  author,
+) {
+  return await apiClient.post('/api/public/writeBoard', {
+    title,
+    content,
+    authorId,
+    authorEmail,
+    author,
+  });
+}

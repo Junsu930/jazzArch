@@ -56,7 +56,8 @@ const Sidebar = () => {
           )}
           {(location.pathname === '/starter' ||
             location.pathname === '/login' ||
-            location.pathname === '/signUp') && (
+            location.pathname === '/signUp' ||
+            location.pathname === '/writePost') && (
             <>
               <SidebarMenu
                 naviArr={navigation}

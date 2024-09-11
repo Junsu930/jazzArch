@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import classes from './BoardDetail.module.css';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { GrLinkPrevious } from 'react-icons/gr';
+import { format } from 'date-fns';
 import {
   Button,
   Card,
@@ -56,11 +57,16 @@ const BoardDetail = () => {
               <CardText>
                 <small className="text-muted">
                   작성자: {boardDetail && boardDetail.author} | 작성일:{' '}
-                  {boardDetail && boardDetail.createdAt}
+                  {boardDetail &&
+                    format(new Date(boardDetail.createdAt), 'yyyy년 MM월 dd일')}
                 </small>
               </CardText>
               <CardText className={classes.content}>
-                {boardDetail && boardDetail.content}
+                {boardDetail && (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: boardDetail.content }}
+                  ></div>
+                )}
               </CardText>
             </CardBody>
           </Card>

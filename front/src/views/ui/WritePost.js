@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Button,
   Form,
@@ -13,62 +13,29 @@ import {
 } from 'reactstrap';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import axios from 'axios';
-import { setImages } from '../../api/apiClient';
+import { writeBoard } from '../../api/apiClient';
+import { useAuth } from '../../context/AuthContexet';
+import { useNavigate } from 'react-router-dom';
 
 const WritePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const quillRef = useRef(null);
+  const auth = useAuth();
+  const navigate = useNavigate();
 
-  // 이미지 업로드 함수
-  const imageHandler = () => {
-    const input = document.createElement('input');
-    input.setAttribute('type', 'file');
-    input.setAttribute('accept', 'image/*');
-    input.click();
-
-    input.onchange = async () => {
-      const file = input.files[0];
-
-      // 이미지 파일을 FormData로 서버에 전송
-      const formData = new FormData();
-      formData.append('file', file);
-
-      try {
-        const response = await setImages(formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-
-        // 서버에서 반환된 이미지 URL
-        const imageUrl = response.data;
-
-        // 에디터에 이미지 URL 삽입
-        const editor = quillRef.current.getEditor(); // Get the Quill editor instance
-        const range = editor.getSelection(); // Get the current selection
-        console.log(range);
-
-        if (range) {
-          editor.insertEmbed(range.index, 'image', imageUrl); // Insert image
-        }
-      } catch (error) {
-        console.error('이미지 업로드 실패:', error);
-      }
-    };
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // 글 작성 데이터 처리 로직
-    axios
-      .post('/api/posts', {
-        title,
-        content,
-      })
+    await writeBoard(
+      title,
+      content,
+      auth.user.id,
+      auth.user.email,
+      auth.user.nickname,
+    )
       .then((response) => {
         console.log('글 작성 성공:', response.data);
+        navigate('/board');
       })
       .catch((error) => {
         console.error('글 작성 실패:', error);
@@ -102,9 +69,8 @@ const WritePost = () => {
                   <Label for="postContent">내용</Label>
                   <ReactQuill
                     value={content}
-                    onChange={setContent}
+                    onChange={(value) => setContent(value)}
                     placeholder="내용을 입력하세요"
-                    ref={quillRef}
                     modules={{
                       toolbar: {
                         container: [
@@ -112,7 +78,7 @@ const WritePost = () => {
                           [{ list: 'ordered' }, { list: 'bullet' }],
                           ['bold', 'italic', 'underline', 'strike'],
                           [{ align: [] }],
-                          ['link', 'image'],
+                          ['link'],
                           ['clean'],
                         ],
                       },
@@ -128,12 +94,12 @@ const WritePost = () => {
                       'strike',
                       'align',
                       'link',
-                      'image',
                     ]}
                     style={{
-                      height: '300px',
+                      height: '500px',
                       maxHeight: '500px',
-                      overflowY: 'auto',
+                      overflowY: 'inherit',
+                      marginBottom: '100px',
                     }}
                   />
                 </FormGroup>
