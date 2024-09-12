@@ -14,6 +14,7 @@ import {
   Row,
 } from 'reactstrap';
 import { getOneBoard } from '../../api/apiClient';
+import BoardComment from './BoardComment';
 
 const BoardDetail = () => {
   const [boardDetail, setBoardDetail] = useState();
@@ -71,6 +72,9 @@ const BoardDetail = () => {
             </CardBody>
           </Card>
         </Col>
+      </Row>
+      <Row>
+        <BoardComment></BoardComment>
       </Row>
     </Container>
   );
