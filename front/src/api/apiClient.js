@@ -47,6 +47,10 @@ export async function setImages(formData, header) {
   return await apiClient.post('/api/public/image/upload', formData, header);
 }
 
+export async function getComment(boardNo) {
+  return await apiClient.get(`/api/public/getComment/${boardNo}`);
+}
+
 export async function writeBoard(
   title,
   content,

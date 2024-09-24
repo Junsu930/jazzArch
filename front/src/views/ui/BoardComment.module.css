@@ -2,3 +2,15 @@
   font-size: 25px;
   margin-bottom: 10px;
 }
+
+.commentLine {
+  margin: 12px;
+}
+
+.editDelete {
+  display: flex;
+}
+
+.editDelete > div {
+  margin: 10px;
+}

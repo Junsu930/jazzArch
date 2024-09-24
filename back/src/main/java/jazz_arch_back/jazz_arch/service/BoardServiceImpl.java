@@ -1,6 +1,7 @@
 package jazz_arch_back.jazz_arch.service;
 
 import jazz_arch_back.jazz_arch.dto.Board;
+import jazz_arch_back.jazz_arch.dto.Comment;
 import jazz_arch_back.jazz_arch.repository.BoardRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -30,4 +31,6 @@ public class BoardServiceImpl implements BoardService {
     public Board writeBoard(Board board) {
         return boardRepository.save(board);
     }
+
+
 }

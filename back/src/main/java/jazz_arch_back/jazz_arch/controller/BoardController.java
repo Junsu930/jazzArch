@@ -1,6 +1,7 @@
 package jazz_arch_back.jazz_arch.controller;
 
 import jazz_arch_back.jazz_arch.dto.Board;
+import jazz_arch_back.jazz_arch.dto.Comment;
 import jazz_arch_back.jazz_arch.dto.Users;
 import jazz_arch_back.jazz_arch.service.BoardService;
 import org.springframework.web.bind.annotation.*;

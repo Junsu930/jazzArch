@@ -4,7 +4,6 @@ import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { GrLinkPrevious } from 'react-icons/gr';
 import { format } from 'date-fns';
 import {
-  Button,
   Card,
   CardBody,
   CardText,
@@ -74,7 +73,7 @@ const BoardDetail = () => {
         </Col>
       </Row>
       <Row>
-        <BoardComment></BoardComment>
+        <BoardComment boardNo={id}></BoardComment>
       </Row>
     </Container>
   );
