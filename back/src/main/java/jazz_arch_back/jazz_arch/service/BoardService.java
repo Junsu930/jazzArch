@@ -13,4 +13,5 @@ public interface BoardService {
 
     public Board writeBoard(Board board);
 
+    public void increaseViewCount(Long boardNo);
 }

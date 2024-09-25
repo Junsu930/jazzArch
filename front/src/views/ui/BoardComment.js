@@ -80,12 +80,13 @@ const BoardComment = ({ boardNo }) => {
                     </div>
                     <small className="text-muted">
                       {format(new Date(comment.createdAt), 'yyyy년 MM월 dd일')}
-                      {comment.author.id === auth.user.id && (
-                        <div className={classes.editDelete}>
-                          <div>삭제</div>
-                          <div>수정</div>
-                        </div>
-                      )}
+                      {auth.isLoggedIn &&
+                        comment.author.id === auth.user.id && (
+                          <div className={classes.editDelete}>
+                            <div>삭제</div>
+                            <div>수정</div>
+                          </div>
+                        )}
                     </small>
                   </div>
                 </CardBody>

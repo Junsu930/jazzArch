@@ -4,6 +4,8 @@ import jazz_arch_back.jazz_arch.dto.Board;
 import jazz_arch_back.jazz_arch.dto.Comment;
 import jazz_arch_back.jazz_arch.dto.Users;
 import jazz_arch_back.jazz_arch.service.BoardService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,4 +30,16 @@ public class BoardController {
     public Board writeBoard(@RequestBody Board board){
         return boardService.writeBoard(board);
     }
+
+    @PostMapping ("/api/public/viewCount/{boardNo}")
+    public ResponseEntity<String> increaseViewCount(@PathVariable Long boardNo){
+        try {
+            boardService.increaseViewCount(boardNo);
+            return ResponseEntity.ok("View count incremented successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to increment view count");
+        }
+    }
+
 }

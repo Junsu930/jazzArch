@@ -12,11 +12,13 @@ import {
   Container,
   Row,
 } from 'reactstrap';
-import { getOneBoard } from '../../api/apiClient';
+import { useCookies } from 'react-cookie';
+import { getOneBoard, increaseViewCount } from '../../api/apiClient';
 import BoardComment from './BoardComment';
 
 const BoardDetail = () => {
   const [boardDetail, setBoardDetail] = useState();
+  const [cookies, setCookie] = useCookies(['readBoard']);
   const { id } = useParams();
   const nav = useNavigate();
   const location = useLocation();
@@ -32,7 +34,24 @@ const BoardDetail = () => {
         console.error('Error fetching the board data:', error);
       }
     }
+
+    function handleViewCount() {
+      // 쿠키에서 'readBoard' 항목 확인 후 처리
+
+      const readBoard = cookies.readBoard || [];
+      if (!readBoard.includes(id)) {
+        increaseViewCount(id); // 조회수 증가 API 호출
+        setBoardCookie();
+      }
+    }
+
+    function setBoardCookie() {
+      const readBoard = cookies.readBoard || [];
+      setCookie('readBoard', [...readBoard, id], { path: '/', maxAge: 1800 }); // 기존 쿠키에 추가하여 저장
+    }
+
     getBoardDetail();
+    handleViewCount();
   }, [id]);
 
   function backToListHandler() {

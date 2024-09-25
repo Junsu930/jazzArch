@@ -51,6 +51,10 @@ export async function getComment(boardNo) {
   return await apiClient.get(`/api/public/getComment/${boardNo}`);
 }
 
+export function increaseViewCount(boardNo) {
+  return apiClient.post(`/api/public/viewCount/${boardNo}`);
+}
+
 export async function writeBoard(
   title,
   content,

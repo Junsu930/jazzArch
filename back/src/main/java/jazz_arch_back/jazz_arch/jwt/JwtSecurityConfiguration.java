@@ -22,6 +22,9 @@ import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.security.KeyPair;
@@ -45,6 +48,25 @@ public class JwtSecurityConfiguration  implements WebMvcConfigurer {
                         .jwt(Customizer.withDefaults()));
 
         return http.build();
+    }
+
+
+
+    // CORS 설정 추가
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("http://localhost:3000");  // 허용할 프론트엔드 URL
+        config.addAllowedHeader("*");  // 모든 헤더 허용
+        config.addAllowedMethod("GET");  // GET 허용
+        config.addAllowedMethod("POST");  // POST 허용
+        config.addAllowedMethod("PUT");  // PUT 허용
+        config.addAllowedMethod("DELETE");  // DELETE 허용
+        config.addAllowedMethod("OPTIONS");  // OPTIONS 허용 (프리플라이트 요청 처리)
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
     }
 
     @Bean

@@ -32,5 +32,15 @@ public class BoardServiceImpl implements BoardService {
         return boardRepository.save(board);
     }
 
+    @Override
+    public void increaseViewCount(Long boardNo) {
+        Board board = boardRepository.findById(boardNo)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid board ID"));
+
+        board.setViewCount(board.getViewCount()+1);
+
+        boardRepository.save(board);
+    }
+
 
 }
