@@ -29,7 +29,6 @@ const Login = () => {
 
       login();
       setUserData(userData);
-      console.log(userData);
       alert('로그인 성공');
       navigate('/starter');
     } catch (error) {
@@ -50,6 +49,11 @@ const Login = () => {
     navigate('/signUp');
   }
 
+  function enterHandler(e) {
+    e.preventDefault();
+    if (e.keyCode === 13) loginHandler(e);
+  }
+
   return (
     <div className={classes.login}>
       <h2>로그인</h2>
@@ -68,6 +72,7 @@ const Login = () => {
           <Label for="examplePassword">비밀번호</Label>
           <Input
             onChange={inputPasswordHandler}
+            onKeyUp={enterHandler}
             type="password"
             name="password"
             id="examplePassword"

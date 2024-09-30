@@ -51,8 +51,24 @@ export async function getComment(boardNo) {
   return await apiClient.get(`/api/public/getComment/${boardNo}`);
 }
 
+export async function getOneComment(commentNo) {
+  return await apiClient.get(`/api/public/getComment/${commentNo}`);
+}
+
 export function increaseViewCount(boardNo) {
   return apiClient.post(`/api/public/viewCount/${boardNo}`);
+}
+
+export function updateComment(commentNo, editedComment) {
+  return apiClient.post(`/api/public/writeComment`, commentNo, editedComment);
+}
+
+export function writeComment(newComment) {
+  return apiClient.post(`/api/public/writeComment`, newComment);
+}
+
+export function deleteComment(commentNo) {
+  return apiClient.delete(`/api/public/deleteComment/${commentNo}`);
 }
 
 export async function writeBoard(

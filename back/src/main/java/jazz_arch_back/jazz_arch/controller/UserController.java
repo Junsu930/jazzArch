@@ -32,6 +32,7 @@ public class UserController {
         }
     }
 
+
     @PostMapping("/api/public/doSignUp")
     public ResponseEntity<?>  doSignUp(@RequestBody Users user){
         try {

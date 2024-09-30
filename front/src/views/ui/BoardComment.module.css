@@ -14,3 +14,8 @@
 .editDelete > div {
   margin: 10px;
 }
+
+.editDelete {
+  cursor: pointer;
+  font-weight: 600;
+}

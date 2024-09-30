@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useAuth } from '../../context/AuthContexet';
 
 const Comment = ({ parentClub }) => {
   const [inputText, setInputText] = useState('');
   const [commList, setCommList] = useState('');
+  const auth = useAuth();
 
   useEffect(() => {
     const defualtList = async () => {
@@ -25,7 +27,7 @@ const Comment = ({ parentClub }) => {
       const addedCmtId = commList[lastCmtIndex].key + 1;
       const newComment = {
         key: addedCmtId,
-        userid: 'junsu',
+        userid: auth.user.userId,
         content: inputText,
         date:
           new Date().getFullYear() +

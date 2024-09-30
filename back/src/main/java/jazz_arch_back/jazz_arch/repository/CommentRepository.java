@@ -11,4 +11,6 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     @Query("SELECT c FROM Comment c JOIN FETCH c.author WHERE c.board.boardNo = :boardNo")
     List<Comment> findByBoardNoWithAuthor(@Param("boardNo") Long boardNo);
+
+    void deleteByCommentNo(Long commentNo);
 }
