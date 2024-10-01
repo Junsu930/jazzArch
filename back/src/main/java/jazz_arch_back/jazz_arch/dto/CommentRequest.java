@@ -12,5 +12,4 @@ public class CommentRequest {
     private String comment;
     private Long boardNo;
     private Long authorId;
-
 }

@@ -60,7 +60,7 @@ export function increaseViewCount(boardNo) {
 }
 
 export function updateComment(commentNo, editedComment) {
-  return apiClient.post(`/api/public/writeComment`, commentNo, editedComment);
+  return apiClient.put(`/api/public/writeComment`, commentNo, editedComment);
 }
 
 export function writeComment(newComment) {

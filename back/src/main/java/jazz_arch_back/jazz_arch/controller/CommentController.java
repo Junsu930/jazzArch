@@ -1,10 +1,7 @@
 package jazz_arch_back.jazz_arch.controller;
 
 import jakarta.transaction.Transactional;
-import jazz_arch_back.jazz_arch.dto.Board;
-import jazz_arch_back.jazz_arch.dto.Comment;
-import jazz_arch_back.jazz_arch.dto.CommentRequest;
-import jazz_arch_back.jazz_arch.dto.Users;
+import jazz_arch_back.jazz_arch.dto.*;
 import jazz_arch_back.jazz_arch.repository.BoardRepository;
 import jazz_arch_back.jazz_arch.repository.UserRepository;
 import jazz_arch_back.jazz_arch.service.CommentService;
@@ -65,7 +62,10 @@ public class CommentController {
         }
     }
 
-
+    @PutMapping("/api/public/editComment")
+    public Comment editComment(@RequestBody CommentEditRequest commentEditRequest){
+        return commentService.editComment(commentEditRequest);
+    }
 
     @DeleteMapping("/api/public/deleteComment/{commentNo}")
     @Transactional
