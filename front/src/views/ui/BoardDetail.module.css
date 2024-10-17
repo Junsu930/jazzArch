@@ -5,3 +5,19 @@
 .backButton {
   cursor: pointer;
 }
+
+.cardFooter {
+  display: flex;
+}
+
+.cardFooter > div {
+  margin: 10px;
+  font-size: 0.8rem;
+}
+
+.editBoard {
+  cursor: pointer;
+}
+.deleteBoard {
+  cursor: pointer;
+}

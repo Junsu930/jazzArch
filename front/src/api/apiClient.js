@@ -4,6 +4,8 @@ const apiClient = axios.create({
   baseURL: 'http://localhost:8080',
 });
 
+const token = localStorage.getItem('token');
+
 export async function getAllBoard() {
   return await apiClient.get('/api/public/getAllBoard');
 }
@@ -60,7 +62,10 @@ export function increaseViewCount(boardNo) {
 }
 
 export function updateComment(commentNo, editedComment) {
-  return apiClient.put(`/api/public/writeComment`, commentNo, editedComment);
+  return apiClient.put(`/api/public/editComment`, {
+    commentNo,
+    editedComment,
+  });
 }
 
 export function writeComment(newComment) {
@@ -69,6 +74,14 @@ export function writeComment(newComment) {
 
 export function deleteComment(commentNo) {
   return apiClient.delete(`/api/public/deleteComment/${commentNo}`);
+}
+
+export function boardDelete(boardNo) {
+  return apiClient.delete(`/api/public/deleteBoard/${boardNo}`);
+}
+
+export function getCommentCount(boardNo) {
+  return apiClient.get(`/api/public/getCommentCount/${boardNo}`);
 }
 
 export async function writeBoard(

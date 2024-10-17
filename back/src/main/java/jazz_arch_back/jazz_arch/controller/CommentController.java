@@ -35,6 +35,14 @@ public class CommentController {
         return commentService.getOneComment(commentNo);
     }
 
+
+    @GetMapping("/api/public/getCommentCount/{boardNo}")
+    public int getCommentCount(@PathVariable("boardNo") Long boardNo) {
+        System.out.println("d");
+
+        return commentService.getCommentCount(boardNo);
+    }
+
     @PostMapping("/api/public/writeComment")
     public ResponseEntity<?> writeComment(@RequestBody CommentRequest commentRequest) {
         try {
@@ -63,8 +71,17 @@ public class CommentController {
     }
 
     @PutMapping("/api/public/editComment")
-    public Comment editComment(@RequestBody CommentEditRequest commentEditRequest){
-        return commentService.editComment(commentEditRequest);
+    @Transactional
+    public ResponseEntity<?> editComment(@RequestBody CommentEditRequest commentEditRequest){
+        try{
+            System.out.println(commentEditRequest.getCommentNo());
+            System.out.println(commentEditRequest.getEditedComment());
+            Comment savedComment  = commentService.editComment(commentEditRequest);
+            return ResponseEntity.ok(savedComment);
+
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("오류 발생" +  e.getMessage());
+        }
     }
 
     @DeleteMapping("/api/public/deleteComment/{commentNo}")

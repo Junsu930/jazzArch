@@ -84,6 +84,7 @@ const BoardComment = ({ boardNo }) => {
 
     try {
       await updateComment(commentNo, editedComment);
+
       setCommentList((prevComments) =>
         prevComments.map((comment) =>
           comment.commentNo === commentNo
@@ -192,14 +193,22 @@ const BoardComment = ({ boardNo }) => {
                         comment.author.id === auth.user.id && (
                           <div className={classes.editDelete}>
                             {editingComment === comment.commentNo ? (
-                              <div
-                                className={classes.editDelete}
-                                onClick={() =>
-                                  saveEditHandler(comment.commentNo)
-                                }
-                              >
-                                저장
-                              </div>
+                              <>
+                                <div
+                                  className={classes.editDelete}
+                                  onClick={() =>
+                                    saveEditHandler(comment.commentNo)
+                                  }
+                                >
+                                  저장
+                                </div>
+                                <div
+                                  className={classes.editDelete}
+                                  onClick={setEditingComment}
+                                >
+                                  취소
+                                </div>
+                              </>
                             ) : (
                               <>
                                 <div

@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 import {
   Card,
   CardBody,
+  CardFooter,
   CardText,
   CardTitle,
   Col,
@@ -13,17 +14,25 @@ import {
   Row,
 } from 'reactstrap';
 import { useCookies } from 'react-cookie';
-import { getOneBoard, increaseViewCount } from '../../api/apiClient';
+import {
+  boardDelete,
+  getCommentCount,
+  getOneBoard,
+  increaseViewCount,
+} from '../../api/apiClient';
 import BoardComment from './BoardComment';
+import { useAuth } from '../../context/AuthContexet';
 
 const BoardDetail = () => {
   const [boardDetail, setBoardDetail] = useState();
   const [cookies, setCookie] = useCookies(['readBoard']);
+  const [commentCount, setCommentCount] = useState(0);
   const { id } = useParams();
   const nav = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const page = queryParams.get('page') || 0; // 페이지 정보 가져오기
+  const auth = useAuth();
 
   useEffect(() => {
     async function getBoardDetail() {
@@ -58,6 +67,30 @@ const BoardDetail = () => {
     nav(`/freeboard?page=${page}`);
   }
 
+  async function boardDeleteHandler(boardNo) {
+    const response = await getCommentCount(boardNo);
+
+    setCommentCount(response.data);
+
+    if (commentCount > 0) {
+      alert('댓글이 남겨진 글은 삭제할 수 없습니다.');
+      return;
+    } else {
+      const isConfirmed = window.confirm('정말 게시물을 삭제하시겠습니까?');
+
+      if (isConfirmed) {
+        // 사용자가 확인을 눌렀을 때 삭제 처리
+        try {
+          await boardDelete(boardNo);
+          // 댓글 목록을 갱신하는 로직 (삭제된 댓글을 제외한 리스트로 상태 업데이트)
+          backToListHandler();
+        } catch (error) {
+          console.error('삭제 중 오류가 발생했습니다:', error);
+        }
+      }
+    }
+  }
+
   return (
     <Container>
       <Row className="my-4">
@@ -88,6 +121,19 @@ const BoardDetail = () => {
                 )}
               </CardText>
             </CardBody>
+            {auth.isLoggedIn &&
+              boardDetail &&
+              boardDetail.authorId === auth.user.id && (
+                <CardFooter className={classes.cardFooter}>
+                  <div className={classes.editBoard}>수정</div>
+                  <div
+                    className={classes.deleteBoard}
+                    onClick={() => boardDeleteHandler(boardDetail.boardNo)}
+                  >
+                    삭제
+                  </div>
+                </CardFooter>
+              )}
           </Card>
         </Col>
       </Row>

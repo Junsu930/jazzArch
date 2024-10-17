@@ -1,5 +1,6 @@
 package jazz_arch_back.jazz_arch.controller;
 
+import jakarta.transaction.Transactional;
 import jazz_arch_back.jazz_arch.dto.Board;
 import jazz_arch_back.jazz_arch.dto.Comment;
 import jazz_arch_back.jazz_arch.dto.Users;
@@ -22,6 +23,7 @@ public class BoardController {
     public List<Board> getAllBoard(){
         return boardService.getAllBoard();}
 
+
     @GetMapping("/api/public/getOneBoard/{boardId}")
     public Optional<Board> getOneBoard(@PathVariable("boardId")Long boardId){return boardService.getOneBoard(boardId);}
 
@@ -42,4 +44,15 @@ public class BoardController {
         }
     }
 
+    @DeleteMapping("/api/public/deleteBoard/{boardNo}")
+    @Transactional
+    public ResponseEntity<String> deleteBoard(@PathVariable Long boardNo) {
+        try{
+            boardService.deleteBoard(boardNo);
+            return ResponseEntity.ok("게시글이 삭제되었습니다.");
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("오류가 발생하였습니다.");
+        }
+    }
 }

@@ -19,8 +19,8 @@ public class CommentServiceImpl implements CommentService {
         this.commentRepository = commentRepository;
     }
     @Override
-    public List<Comment> getComment(Long id) {
-        return commentRepository.findByBoardNoWithAuthor(id);
+    public List<Comment> getComment(Long boardNo) {
+        return commentRepository.findByBoardNoWithBoardNo(boardNo);
     }
 
     @Override
@@ -55,5 +55,10 @@ public class CommentServiceImpl implements CommentService {
         } else {
             throw new RuntimeException("Comment not found with id: " + commentEditRequest.getCommentNo());
         }
+    }
+
+    @Override
+    public int getCommentCount(Long boardNo) {
+        return commentRepository.countAllByBoard_BoardNo(boardNo);
     }
 }

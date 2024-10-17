@@ -17,4 +17,6 @@ public interface CommentService {
     public Optional<Comment> getOneComment(Long commentNo);
 
     public Comment editComment(CommentEditRequest commentEditRequest);
+
+    public int getCommentCount(Long boardNo);
 }
